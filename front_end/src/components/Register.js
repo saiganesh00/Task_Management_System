@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -24,13 +24,46 @@ const Register = () => {
       const response = await axios.post('http://127.0.0.1:8000/api/register/', { email, password });
       console.log('Register success:', response.data);
       setSuccessMessage('Registration successful! You can now log in.');
-      setTimeout(() => navigate('/'), 3000); // Redirect to login after 3 seconds
+      setTimeout(() => navigate('/login'), 3000); // Redirect to login after 3 seconds
     } catch (error) {
       setError('An error occurred. Please try again.');
     }
   };
 
   return (
+    <>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <a className="navbar-brand" href="/">
+            TaskMaster
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/register">
+                  Sign Up
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
       <div className="card shadow-sm" style={{ width: '100%', maxWidth: '400px' }}>
         <div className="card-body">
@@ -76,11 +109,12 @@ const Register = () => {
             </div>
           </form>
           <p className="mt-3 text-center">
-            Already have an account? <a href="/">Login here</a>
+            Already have an account? <a href="/login">Login here</a>
           </p>
         </div>
       </div>
     </div>
+    </>
   );
 };
 

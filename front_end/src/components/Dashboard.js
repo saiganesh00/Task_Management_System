@@ -97,21 +97,33 @@ const Dashboard = () => {
   });
 
   return (
+    
     <div className="container py-5">
       <div className="text-center mb-5">
         <i className="bi bi-clipboard-check display-4 text-primary"></i>
         <h1 className="display-5 fw-bold">Task Manager</h1>
-        <button 
-          className="btn btn-danger float-end"
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
+        
         {email && <h4 className="mt-3">Welcome, {email.split('@')[0]}!</h4>}  {/* Display the welcome message */}
       </div>
 
       {/* Task Form to Add New Task */}
-      <TaskForm addTask={addTask} />
+      <div className="container mt-4">
+      <div className="row justify-content-between align-items-center mb-3">
+        <div className="col">
+          <TaskForm addTask={addTask} />
+        </div>
+        <div className="col-auto">
+          <button 
+            className="btn btn-danger"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+      
 
       {/* Task Filters to Show Different Task Statuses */}
       <TaskFilters setFilter={setFilter} filter={filter} tasks={tasks} />
