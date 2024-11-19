@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Task Management System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend of a task management system, built with **React.js** and **react-router-dom**. The frontend provides a responsive user interface that allows users to create, update, delete, and manage tasks efficiently. It interacts with a backend server built using Django via RESTful API calls.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Authentication**: Secure login and registration forms.
+- **Task Management**: Create, update, delete, and view tasks.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Interactive UI**: A user-friendly interface with modern design using Tailwind CSS.
+- **Routing**: Navigation between different pages like Login, Dashboard, and Task Details using **react-router-dom**.
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js**: A JavaScript library for building user interfaces.
+- **react-router-dom**: For route management within the app.
+- **Axios**: To handle HTTP requests to the backend API.
+- **Tailwind CSS**: For fast and efficient styling.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Folder Structure
 
-### `npm test`
+```plaintext
+frontend/
+├── public/
+│   ├── index.html         # Main HTML file
+│   └── ...
+├── src/
+│   ├── components/        # Reusable React components
+│   ├── pages/             # Page components for routing
+│   ├── App.js             # Main application file
+│   ├── index.js           # Entry point for React
+│   ├── api.js             # API service for HTTP requests
+│   └── ...
+├── package.json           # Project metadata and dependencies
+└── tailwind.config.js     # Tailwind CSS configuration
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+To set up and run the frontend locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository and navigate to the `frontend` directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    git clone <repository-url>
+    cd frontend
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the required dependencies:
 
-### `npm run eject`
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    npm start
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Open the application in your browser at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Configuration
 
-## Learn More
+Ensure that the backend server is running and accessible (default: `http://localhost:8000`). You may need to update API endpoint URLs in the `api.js` file if your backend server is hosted on a different address or port.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Open the app in your browser at `http://localhost:3000`.
+2. Register or log in to your account.
+3. Create new tasks, edit existing tasks, or delete tasks as needed.
+4. Use the React Router to navigate between pages, such as the Dashboard, Task Details, and Login pages.
+5. Enjoy a seamless task management experience with a responsive UI.
 
-### Code Splitting
+## Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Below are some useful scripts for development and production:
 
-### Analyzing the Bundle Size
+- **`npm start`**: Runs the app in development mode.
+- **`npm run build`**: Builds the app for production.
+- **`npm test`**: Launches the test runner.
+- **`npm run eject`**: Ejects the app (not reversible).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Dependencies
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **React**: ^18.0.0
+- **react-router-dom**: ^6.0.0
+- **Axios**: ^1.0.0
+- **Tailwind CSS**: ^3.0.0

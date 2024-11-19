@@ -10,7 +10,9 @@ const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
   const [priorityFilter, setPriorityFilter] = useState("all");
+  const [email, setEmail] = useState("");  // State for the email
   const navigate = useNavigate();
+
   // Fetch tasks from the API using Axios
   const fetchTasks = async () => {
     try {
@@ -20,6 +22,12 @@ const Dashboard = () => {
         navigate('/');
         return;
       }
+      // Retrieve email from localStorage or make an API call if needed
+      const storedEmail = localStorage.getItem('email'); // Assume email is stored during login
+      if (storedEmail) {
+        setEmail(storedEmail);
+      }
+
       const response = await Axios.get("http://127.0.0.1:8000/api/tasks/", {
         headers: {
           'Authorization': `Token ${token}`,  // Add token to Authorization header
@@ -30,10 +38,11 @@ const Dashboard = () => {
       console.error("Error fetching tasks:", error);
     }
   };
+
   // Call fetchTasks on component mount
   useEffect(() => {
     fetchTasks();
-  });
+  }, []);
 
   // Add a new task
   const addTask = async (task) => {
@@ -49,7 +58,7 @@ const Dashboard = () => {
       console.error("Error adding task:", error.message);
     }
   };
-  
+
   // Update task status (in-progress or completed)
   const updateTaskStatus = async (taskId, updatedTask) => {
     try {
@@ -74,6 +83,7 @@ const Dashboard = () => {
   // Logout function
   const handleLogout = () => {
     localStorage.removeItem("token"); // Example: Clear token from localStorage
+    localStorage.removeItem("email"); // Clear the email from localStorage
     window.location.href = "/";  // Redirect to the login page
   };
 
@@ -97,6 +107,7 @@ const Dashboard = () => {
         >
           Logout
         </button>
+        {email && <h4 className="mt-3">Welcome, {email.split('@')[0]}!</h4>}  {/* Display the welcome message */}
       </div>
 
       {/* Task Form to Add New Task */}
